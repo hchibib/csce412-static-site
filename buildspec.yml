@@ -3,7 +3,6 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "Cleaning S3 bucket..."
       - aws s3 rm s3://csce412hchibib.me/ --recursive
   build:
     commands:
@@ -11,7 +10,7 @@ phases:
       - mkdir output
       - echo "Files before copy:"
       - ls -R app/
-      - cp -r app/* output/
+      - cp -R app/* output/
       - echo "Files after copy:"
       - ls -R output/
 
