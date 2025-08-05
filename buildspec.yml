@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Cleaning old site content..."
+      - aws s3 rm s3://csce412hchibib.me/ --recursive
+
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Uploading files from app/ to S3 with public-read permissions..."
+      - aws s3 cp app/ s3://csce412hchibib.me/ --recursive --acl public-read
+
+artifacts:
+  files:
+    - '**/*'
