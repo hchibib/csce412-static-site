@@ -11,7 +11,3 @@ phases:
       - echo "Build started on `date`"
       - echo "Uploading files from app/ to S3 with public-read permissions..."
       - aws s3 cp app/ s3://csce412hchibib.me/ --recursive --acl public-read
-
-artifacts:
-  files:
-    - '**/*'
